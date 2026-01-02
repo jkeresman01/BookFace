@@ -45,21 +45,21 @@ public final class Post {
             name = "image_id",
             columnDefinition = "TEXT"
     )
-    String imageId;
+    private String imageId;
 
     @Column(
             name = "title",
             nullable = false,
             columnDefinition = "TEXT"
     )
-    String title;
+    private String title;
 
     @Column(
             name = "content",
             nullable = false,
             columnDefinition = "TEXT"
     )
-    String content;
+    private String content;
 
     @ManyToOne
     @JoinColumn(
@@ -70,7 +70,7 @@ public final class Post {
                     name = "user_id_fkey"
             )
     )
-    User user;
+    private User user;
 
     @Column(
             name = "createdAt",
@@ -78,12 +78,12 @@ public final class Post {
             nullable = false,
             columnDefinition = "TIMESTAMP WITHOUT TIME ZONE"
     )
-    LocalDateTime createdAt = LocalDateTime.now();
+    private LocalDateTime createdAt = LocalDateTime.now();
 
     @Column(
             name = "updated_at",
             nullable = false,
             columnDefinition = "TIMESTAMP WITHOUT TIME ZONE"
     )
-    LocalDateTime updatedAt = LocalDateTime.now();
+    private LocalDateTime updatedAt = LocalDateTime.now();
 }
