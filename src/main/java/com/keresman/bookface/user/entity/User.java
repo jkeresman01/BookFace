@@ -14,8 +14,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -28,10 +26,6 @@ import java.time.LocalDateTime;
                 @UniqueConstraint(
                         name = "user_email_unique",
                         columnNames = "email"
-                ),
-                @UniqueConstraint(
-                        name = "profile_image_id_unique",
-                        columnNames = "profileImageId"
                 ),
                 @UniqueConstraint(
                         name = "username_unique",
@@ -99,23 +93,4 @@ public final class User {
             columnDefinition = "TEXT"
     )
     private String password;
-
-    @Column(
-            name = "profile_image_id",
-            columnDefinition = "TEXT"
-    )
-    private String profileImageId;
-
-    @Column(
-            name = "createdAt",
-            updatable = false,
-            columnDefinition = "TIMESTAMP WITHOUT TIME ZONE"
-    )
-    private LocalDateTime createdAt;
-
-    @Column(
-            name = "updated_at",
-            columnDefinition = "TIMESTAMP WITHOUT TIME ZONE"
-    )
-    private LocalDateTime updatedAt;
 }

@@ -1,5 +1,6 @@
-package com.keresman.bookface.post.entity;
+package com.keresman.bookface.comment.entity;
 
+import com.keresman.bookface.post.entity.Post;
 import com.keresman.bookface.user.entity.User;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,44 +16,28 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(
-        name =  "Post"
+        name =  "Comment"
 )
 @Table(
-        name = "post"
+        name = "comment"
 )
-public final class Post {
+public final class Comment {
 
     @Id
     @SequenceGenerator(
-            name = "post_sequence",
-            sequenceName = "post_sequence",
+            name="comment_sequence",
+            sequenceName = "comment_sequence",
             allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "post_sequence"
+            generator = "comment_sequence"
     )
     private Long id;
-
-    @Column(
-            name = "image_id",
-            columnDefinition = "TEXT"
-    )
-    private String imageId;
-
-    @Column(
-            name = "title",
-            nullable = false,
-            columnDefinition = "TEXT"
-    )
-    private String title;
 
     @Column(
             name = "content",
@@ -61,7 +46,7 @@ public final class Post {
     )
     private String content;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(
             name = "user_id",
             nullable = false,
@@ -71,4 +56,15 @@ public final class Post {
             )
     )
     private User user;
+
+    @ManyToOne()
+    @JoinColumn(
+            name = "post_id",
+            nullable = false,
+            referencedColumnName = "id",
+            foreignKey = @ForeignKey(
+                    name = "post_id_fkey"
+            )
+    )
+    private Post post;
 }
