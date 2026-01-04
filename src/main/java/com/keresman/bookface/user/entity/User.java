@@ -30,11 +30,7 @@ import lombok.NoArgsConstructor;
                 @UniqueConstraint(
                         name = "username_unique",
                         columnNames = "username"
-                ),
-                @UniqueConstraint(
-                        name = "password_unique",
-                        columnNames = "password"
-                ),
+                )
         }
 )
 public final class User {

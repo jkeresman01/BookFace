@@ -13,6 +13,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/users")
@@ -29,11 +30,14 @@ public class UserController {
 
     @GetMapping("{userId}")
     public ResponseEntity<UserDTO> getUser(@PathVariable Long userId) {
-        return ResponseEntity.ok()
-                .body(userService.getUserById(userId));
+        Optional<UserDTO> userDTO = userService.getUserById(userId);
+
+        return userDTO
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping("{userId}")
+    @PostMapping
     public ResponseEntity<?> create(@RequestBody CreateUserReq createUserReq) {
         Long userId = userService.createUser(createUserReq);
 
