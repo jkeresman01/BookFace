@@ -26,7 +26,7 @@ public class ReplyService {
 
     public ReplyService(
             @Qualifier("replyJpa") ReplyDAO replyDAO,
-            @Qualifier("jpaUser") UserDAO userDAO,
+            @Qualifier("userJPA") UserDAO userDAO,
             @Qualifier("commentJpa") CommentDAO commentDAO,
             ReplyDTOMapper replyDTOMapper
     ) {

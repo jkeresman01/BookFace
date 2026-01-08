@@ -23,7 +23,7 @@ public class PostService {
 
     public PostService(
             @Qualifier("postJpa") PostDAO postDAO,
-            @Qualifier("jpaUser") UserDAO userDAO,
+            @Qualifier("userJPA") UserDAO userDAO,
             PostDTOMapper postDTOMapper
     ) {
         this.postDAO = postDAO;

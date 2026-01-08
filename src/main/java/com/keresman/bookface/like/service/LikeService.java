@@ -25,7 +25,7 @@ public class LikeService {
 
     public LikeService(
             @Qualifier("likeJpa") LikeDAO likeDAO,
-            @Qualifier("jpaUser") UserDAO userDAO,
+            @Qualifier("userJPA") UserDAO userDAO,
             @Qualifier("postJpa") PostDAO postDAO,
             LikeDTOMapper likeDTOMapper
     ) {
