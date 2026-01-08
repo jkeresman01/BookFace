@@ -26,7 +26,7 @@ public class CommentService {
 
     public CommentService(
             @Qualifier("commentJpa") CommentDAO commentDAO,
-            @Qualifier("jpa") UserDAO userDAO,
+            @Qualifier("jpaUser") UserDAO userDAO,
             @Qualifier("postJpa") PostDAO postDAO,
             CommentDTOMapper commentDTOMapper
     ) {

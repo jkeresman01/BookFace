@@ -20,7 +20,7 @@ public class UserService {
     private final UserDTOMapper userDTOMapper;
 
 
-    public UserService(@Qualifier("jdbc") UserDAO userDAO, UserDTOMapper userDTOMapper) {
+    public UserService(@Qualifier("jdbcUser") UserDAO userDAO, UserDTOMapper userDTOMapper) {
         this.userDAO = userDAO;
         this.userDTOMapper = userDTOMapper;
     }

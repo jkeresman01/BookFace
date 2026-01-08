@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
-@Repository("jpa")
+@Repository("jpaUser")
 @RequiredArgsConstructor
 public class UserJPADataAccessService implements UserDAO {
 
